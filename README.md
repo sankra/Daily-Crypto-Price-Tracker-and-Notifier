@@ -23,4 +23,14 @@ This project demonstrates the use of **Apache Airflow** for orchestrating a data
 ---
 
 ## 📂 Project Structure
+crypto_airflow_project/
+├── dags/
+│   └── crypto_price_dag.py
+├── plugins/
+│   └── custom_operator.py
+├── data/
+│   └── prices/
+├── requirements.txt
+├── README.md
+└── docker-compose.yml  # Optional for local Airflow setup
 
