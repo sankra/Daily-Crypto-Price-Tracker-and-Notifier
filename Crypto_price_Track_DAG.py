@@ -80,5 +80,4 @@ with DAG(
 
     end = DummyOperator(task_id='end')
 
-    start >> fetch >> save >> check_price
-    check_price >> [notify_high, skip_notify] >> end
+    start >> fetch >> save >> check_price >> [notify_high, skip_notify] >> end
