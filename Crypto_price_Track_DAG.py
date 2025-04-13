@@ -8,6 +8,7 @@ import csv
 import os
 from datetime import datetime
 
+
 default_args = {
     'owner': 'airflow',
     'start_date': days_ago(1),
@@ -43,6 +44,7 @@ def notify():
 
 with DAG(
     dag_id='crypto_price_tracker',
+    description = "Crypto Price Tracker Dag with multiple tasks",
     default_args=default_args,
     schedule_interval='@daily',
     catchup=False,
