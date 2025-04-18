@@ -1,12 +1,13 @@
+import requests
+import csv
+import os
+
 from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.operators.dummy import DummyOperator
 from airflow.utils.dates import days_ago
 from airflow.utils.task_group import TaskGroup
-import requests
-import csv
-import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 default_args = {
