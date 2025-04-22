@@ -16,7 +16,9 @@ from datetime import datetime, timedelta
 default_args = {
     'owner': 'airflow',
     'start_date': days_ago(1),
-    'retries': 1
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5),
+    'email_on_failure': False,
 }
 
 def fetch_prices(**kwargs):
@@ -83,6 +85,7 @@ with DAG(
     skip_notify = DummyOperator(task_id='skip_notification')
 
     end = DummyOperator(task_id='end')
+
 
     #process flow
     start >> fetch >> save >> check_price 
