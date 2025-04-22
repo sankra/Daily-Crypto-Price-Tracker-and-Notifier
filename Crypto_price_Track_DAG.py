@@ -68,8 +68,9 @@ with DAG(
     save = PythonOperator(
         task_id='save_to_csv',
         python_callable=save_to_csv,
-        provide_context=True
+        provide_context= False
     )
+
 
     check_price = BranchPythonOperator(
         task_id='check_price_alert',

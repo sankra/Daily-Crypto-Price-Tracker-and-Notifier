@@ -17,8 +17,9 @@ This project demonstrates the use of **Apache Airflow** for orchestrating a data
 - **Apache Airflow**
 - **Python 3.8+**
 - **CoinGecko API**
-- **Docker (Optional)**
+- **Docker (Optional if you are not able to run airflow in your machine)**
 - **XCom / Branching / Sensors / Notifications**
+
 
 ---
 
