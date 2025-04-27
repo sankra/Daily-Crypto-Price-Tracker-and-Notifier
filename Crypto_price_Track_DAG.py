@@ -65,6 +65,7 @@ with DAG(
         provide_context=True
     )
 
+
     save = PythonOperator(
         task_id='save_to_csv',
         python_callable=save_to_csv,
@@ -82,6 +83,12 @@ with DAG(
         task_id='notify_high_price',
         python_callable=notify
     )
+    load = PythonOperator(
+        task_id='load_to_db',
+        python_callable=save_to_csv,
+        provide_context=False
+    )
+    # Dummy operator to skip notification
 
     skip_notify = DummyOperator(task_id='skip_notification')
 
