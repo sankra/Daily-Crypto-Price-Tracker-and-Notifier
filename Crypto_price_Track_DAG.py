@@ -19,6 +19,9 @@ default_args = {
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
     'email_on_failure': False,
+    'email_on_retry': False,
+    'email_on_success': False,
+    'on_failure_callback': None,
 }
 
 def fetch_prices(**kwargs):
