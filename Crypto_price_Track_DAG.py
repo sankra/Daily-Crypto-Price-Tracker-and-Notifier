@@ -19,6 +19,9 @@ default_args = {
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
     'email_on_failure': False,
+    'email_on_retry': False,
+    'email_on_success': False,
+    'on_failure_callback': None,
 }
 
 def fetch_prices(**kwargs):
@@ -65,6 +68,7 @@ with DAG(
         provide_context=True
     )
 
+
     save = PythonOperator(
         task_id='save_to_csv',
         python_callable=save_to_csv,
@@ -82,6 +86,12 @@ with DAG(
         task_id='notify_high_price',
         python_callable=notify
     )
+    load = PythonOperator(
+        task_id='load_to_db',
+        python_callable=save_to_csv,
+        provide_context=False
+    )
+    # Dummy operator to skip notification
 
     skip_notify = DummyOperator(task_id='skip_notification')
 
