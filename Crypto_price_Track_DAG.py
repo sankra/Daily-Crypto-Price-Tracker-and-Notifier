@@ -48,6 +48,13 @@ def price_alert(**kwargs):
         return 'notify_high_price'
     return 'skip_notification'
 
+def load_to_db(**kwargs):
+    data = kwargs['ti'].xcom_pull(key='prices', task_ids='fetch_prices')
+    engine = sqlalchemy.create_engine('sqlite:///crypto_prices.db')
+    with engine.connect() as conn:
+        for coin, value in data.items():
+            conn.execute(f"INSERT INTO prices (coin, price_usd) VALUES ('{coin}', {value['usd']})")
+
 def notify():
     print("Sending Email/Slack: ETH crossed threshold!")
 
