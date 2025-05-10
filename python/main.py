@@ -27,6 +27,8 @@ if __name__ == "__main__":
         print(f"sys.path[{i}]: {sys.path[i]}")
         print(f"sys.modules[{i}]: {sys.modules[i]}")
         print(f"sys.modules[{i}]: {sys.modules[i]}")
+        print(f"sys.modules[{i}]: {sys.modules[i]}")
+        print(f"sys.modules[{i}]: {sys.modules[i]}")
 
 def fetch_prices(**kwargs):
     url = "https://api.coingecko.com/api/v3/simple/price?ids=ethereum,bitcoin&vs_currencies=usd"
