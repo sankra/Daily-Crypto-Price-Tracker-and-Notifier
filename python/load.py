@@ -27,3 +27,17 @@ if __name__ == "__main__":
     load_data_to_s3()
     # Load data to Redshift
     load_data_to_redshift()
+    # Load the DataFrame into Redshift
+    wr.redshift.to_sql(
+        df=df,
+        table=redshift_conn["db_table"],
+        schema="public",
+        con=wr.redshift.connect(
+            dbname=redshift_conn["db_name"],
+            user=redshift_conn["db_user"],
+            password=redshift_conn["db_password"],
+            host=redshift_conn["db_host"],
+            port=redshift_conn["db_port"]
+        ),
+        mode="append"
+    )
