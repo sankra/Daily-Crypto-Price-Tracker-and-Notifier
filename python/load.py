@@ -16,6 +16,11 @@ def load_data_to_s3():
         path=s3_path,
         index=False
     )
+    # Check if the file exists in S3
+    if wr.s3.does_object_exist(s3_path):
+        print(f"File successfully uploaded to {s3_path}")
+    else:
+        print(f"Failed to upload file to {s3_path}")
 
 def load_data_to_redshift():
     # Define the Redshift connection parameters
