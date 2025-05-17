@@ -10,6 +10,12 @@ def load_data_to_s3():
     s3_path = f"s3://{bucket}/{file_path}"
     # Load the CSV file into a DataFrame
     df = pd.read_csv(file_path)
+    # Upload the DataFrame to S3
+    wr.s3.to_csv(
+        df=df,
+        path=s3_path,
+        index=False
+    )
 
 def load_data_to_redshift():
     # Define the Redshift connection parameters

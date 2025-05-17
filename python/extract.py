@@ -34,4 +34,5 @@ if __name__ == "__main__":
         print(f"sys.path[{i}]: {sys.path[i]}")
         print(f"sys.modules[{i}]: {sys.modules[i]}")
         print(f"sys.modules[{i}]: {sys.modules[i]}")
+        print(f"sys.modules[{i}]: {sys.modules[i]}")
     print(f"sys.modules[{i}]: {sys.modules[i]}")
