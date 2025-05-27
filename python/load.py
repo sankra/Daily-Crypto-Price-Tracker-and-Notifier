@@ -50,5 +50,6 @@ if __name__ == "__main__":
             host=redshift_conn["db_host"],
             port=redshift_conn["db_port"]
         ),
+        if_exists="append",  # Use "replace" to overwrite the table
         mode="append"
     )
