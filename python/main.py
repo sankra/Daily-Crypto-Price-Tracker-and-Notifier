@@ -3,6 +3,7 @@ import csv
 import sys
 import requests
 import sqlalchemy
+import logging
 
 for i in range(3):
     print(f"sys.path[{i}]: {sys.path[i]}")
@@ -13,6 +14,8 @@ for i in range(3):
     print(f"sys.modules[{i}]: {sys.modules[i]}")
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    logging.info("The ETL process has been started to trck Crypto Price Track.")
     print("This is the main module.")
     print("Current working directory:", os.getcwd())
     print("Python version:", sys.version)
