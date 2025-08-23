@@ -23,3 +23,5 @@ def save_prices_to_csv(prices, filename='prices.csv'):
             print(f"Prices saved to {filename}")
         else:
             print(f"Failed to save prices to {filename}")
+
+def save_prices_to_db(prices, db_url='sqlite:///prices.db'):
