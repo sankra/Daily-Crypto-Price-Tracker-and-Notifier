@@ -25,3 +25,11 @@ def save_prices_to_csv(prices, filename='prices.csv'):
             print(f"Failed to save prices to {filename}")
 
 def save_prices_to_db(prices, db_url='sqlite:///prices.db'):
+    engine = sqlalchemy.create_engine(db_url)
+    with engine.connect() as connection:
+        for currency, price in prices.items():
+            connection.execute(
+                f"INSERT INTO prices (currency, price) VALUES ('{currency}', {price['usd']})"
+            )
+            print(f"Inserted {currency} price into database")
+        print("Prices saved to database")
