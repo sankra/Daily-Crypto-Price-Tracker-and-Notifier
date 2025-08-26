@@ -33,5 +33,6 @@ def save_prices_to_db(prices, db_url='sqlite:///prices.db'):
                 f"INSERT INTO prices (currency, price) VALUES ('{currency}', {price['usd']})"
                 f"INSERT INTO prices (currency, price) VALUES ('{currency}', {price['rupee']})"
             )
+            print(f"Inserted USA {currency} price into database")
             print(f"Inserted {currency} price into database")
         print("Prices saved to database")
