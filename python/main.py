@@ -67,3 +67,6 @@ def save_prices_to_db(prices, db_url='sqlite:///prices.db'):
     else:
         print(f"Failed to save prices to {db_url}")
     logging.info("ETL process completed successfully.")
+# calling load function
+if __name__ == "__main__":
+    
