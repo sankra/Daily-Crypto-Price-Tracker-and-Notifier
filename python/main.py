@@ -69,4 +69,15 @@ def save_prices_to_db(prices, db_url='sqlite:///prices.db'):
     logging.info("ETL process completed successfully.")
 # calling load function
 if __name__ == "__main__":
-    
+    fetch_prices()
+    prices = {
+        "bitcoin": {"usd": 50000},
+        "ethereum": {"usd": 4000}
+    }
+    save_prices_to_csv(prices)
+    db_url = 'sqlite:///prices.db'
+    save_prices_to_db(prices, db_url)
+    if os.path.exists(db_url):
+        print(f"Prices saved to {db_url}")
+    else:
+        print(f"Failed to save prices to {db_url}")
