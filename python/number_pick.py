@@ -10,3 +10,4 @@ print("Random number (1-26):", random_number)
 print("5 unique numbers (1-69):", unique_numbers)
 # Print the results
 print("5 unique numbers (1-69):", unique_numbers)
+print("Random number (1-26):", random_number)
