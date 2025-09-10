@@ -22,3 +22,4 @@ t1.join()
 t2.join()
 
 print("Both threads have finished execution")
+print("after both threads have finished execution")
